@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import Route from "./Route";
+import AppRoute from "./AppRoute";
 import Sidebar from "./Sidebar";
 
 const MainPage = () => {
@@ -13,7 +13,7 @@ const MainPage = () => {
       {/* sidebar section */}
       <section className="d-flex">
         <Sidebar />
-        <Route />
+        <AppRoute />
       </section>
     </React.Fragment>
   );
