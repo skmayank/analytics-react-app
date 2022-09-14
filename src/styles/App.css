@@ -65,3 +65,15 @@
   }
 }
 /* volume component css end here */
+
+
+.box{
+  height: 25px;
+    width: 25px;
+    border: 1px solid black;
+    /* background: red; */
+}
+
+.main-box {
+  height: 40px;
+}
