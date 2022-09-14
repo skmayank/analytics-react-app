@@ -1,15 +1,11 @@
-import React from 'react';
-import DonutChartProduct from '../components/DonutChartProduct';
+import React from 'react'
 
-const RetailerFullProduct = () => {
+const ProductAvailability = () => {
   return (
     <div>
-      <h1 className="text-center p-4">Retailer Full Product</h1>
-      <div className="text-center">
-        <DonutChartProduct />
-      </div>
+      Product Availability
     </div>
   )
 }
 
-export default RetailerFullProduct
+export default ProductAvailability

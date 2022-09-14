@@ -57,7 +57,7 @@ const Inventory = () => {
 
       <div className="d-flex justify-content-around">
         {columns.map((item, index) => (
-          <div className="d-flex">
+          <div key={index} className="d-flex">
             <div className="box" style={{ background: item.color }}></div>
             <span> {item.type} </span>
           </div>
