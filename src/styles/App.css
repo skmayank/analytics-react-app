@@ -1,4 +1,19 @@
+.main__contain {
+  width: 100%;
+}
 .sidebar-main-content {
  width: 280px;
   height: 100vh;
+}
+
+.home_dropdown {
+  padding: 7px;
+  width: 190px;
+  display: flex;
+  float: right;
+}
+
+.map-container-home {
+  width: 50%;
+  height: 40vh;
 }
