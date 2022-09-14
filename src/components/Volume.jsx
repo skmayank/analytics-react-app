@@ -5,9 +5,6 @@ const ReMount = (props) => {
 
   return (
     <div>
-      {/* <button className="button" onClick={() => setKey(Date.now())}>
-        reload
-      </button> */}
       <div key={key}>{props.children}</div>
     </div>
   );
