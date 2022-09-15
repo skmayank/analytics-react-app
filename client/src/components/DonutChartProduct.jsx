@@ -30,7 +30,6 @@ const DonutChartProduct = (props) => {
         colors={reactDonutChartBackgroundColor}
         innerRadius={reactDonutChartInnerRadius}
         selectedOffset={reactDonutChartSelectedOffset}
-        // onClick={(item, toggled) => reactDonutChartHandleClick(item, toggled)}
       />
     </div>
   );

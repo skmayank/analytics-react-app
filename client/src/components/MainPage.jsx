@@ -5,17 +5,13 @@ import Sidebar from "./Sidebar";
 
 const MainPage = () => {
   return (
-    <React.Fragment>
-      {/* <section>
-          <Header />
-      </section> */}
-
+    <>
       {/* sidebar section */}
       <section className="d-flex">
         <Sidebar />
         <AppRoute />
       </section>
-    </React.Fragment>
+    </>
   );
 };
 

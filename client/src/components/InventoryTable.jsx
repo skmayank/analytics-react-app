@@ -5,46 +5,65 @@ import movies from "../data/movies";
 const columns = [
   {
     name: "Type Color",
-    selector: (row)=><p className="table-circle" style={{backgroundColor: row.color}}></p>,
+    selector: (row) => (
+      <p className="table-circle" style={{ backgroundColor: row.color }}></p>
+    ),
     sortable: true,
   },
   {
     name: "Type",
-    selector: "Type",
+    selector: (row) => row.Type,
+    // selector: "Type",
     sortable: true,
   },
   {
     name: "Batch ID",
-    selector: "BatchNumber",
+     selector: (row) => row.BatchNumber,
+    // selector: "BatchNumber",
     sortable: true,
   },
   {
     name: "Current Location",
-    selector: "location",
+     selector: (row) => row.location,
+    // selector: "location",
     sortable: true,
     right: true,
   },
   {
     name: "Product",
-    selector: "Product",
+     selector: (row) => row.Product,
+    // selector: "Product",
     sortable: true,
     right: true,
   },
   {
     name: "Quanitity",
-    selector: "Size",
+     selector: (row) => row.Size,
+    // selector: "Size",
     sortable: true,
     right: true,
   },
   {
     name: "Time on Shelf",
-    selector: "statusTime",
+     selector: (row) => row.statusTime,
+    // selector: "statusTime",
     sortable: true,
     right: true,
   },
   {
     name: "Status",
-    selector: (row)=><p> {(row.volume <= 10)?("Empty"): row.volume <= 90 ? "Inuse" : row.volume <= 100 ? "Full": "N/A"  }</p>,
+    selector: (row) => (
+      <p>
+        {" "}
+        {row.volume <= 10
+          ? "Empty"
+          : row.volume <= 90
+          ? "Inuse"
+          : row.volume <= 100
+          ? "Full"
+          : "N/A"}
+      </p>
+    ),
     sortable: true,
     right: true,
   },
@@ -61,11 +80,9 @@ const conditionalRowStyles = [
 ];
 
 const InventoryTable = (props) => {
-
   const [data, setData] = React.useState(movies);
 
   const handleRowClicked = (row) => {
-    
     const updatedData = data.map((item) => {
       if (row.id !== item.id) {
         return item;
@@ -79,7 +96,7 @@ const InventoryTable = (props) => {
 
     setData(updatedData);
   };
-  
+
   return (
     <div>
       <div className="App">

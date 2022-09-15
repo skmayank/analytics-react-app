@@ -38,9 +38,18 @@ const columns = [
     color_percent: "10%",
   },
 ];
-const cl = ["#f68ae9", "#f2b800", "#5fefa4", "#fe6969", "#298af2", "#298af2", "#af1ad8", "#fb8e34"];
+const colorTable = [
+  "#f68ae9",
+  "#f2b800",
+  "#5fefa4",
+  "#fe6969",
+  "#298af2",
+  "#298af2",
+  "#af1ad8",
+  "#fb8e34",
+];
 
-const Inventory = () => {
+export const Inventory = () => {
   const [type, setType] = useState([]);
   const [tableData, setTableData] = useState([]);
   const [fullTableData, setFullTableData] = useState([]);
@@ -48,54 +57,47 @@ const Inventory = () => {
   useEffect(() => {
     getAllData().then((res) => {
       setTableData(res.message);
-      setFullTableData(res.message)
+      setFullTableData(res.message);
     });
 
     getAllType().then((res) => {
-      
       const color = res.message?.map((item, index) => {
-        return { ...item, color: cl[index] };
+        return { ...item, color: colorTable[index] };
       });
-
       setType(color);
     });
   }, []);
 
   const handleClick = (item) => {
-    const filterResult = fullTableData.filter((row)=>(
-      row.Type === item.name
-    ))
-    setTableData(filterResult)
+    const filterResult = fullTableData.filter((row) => row.Type === item.name);
+    setTableData(filterResult);
   };
 
-  useEffect(()=> {
-
-    if(type) {
+  useEffect(() => {
+    if (type) {
       let tablecolor = tableData.map((item) => {
-        const tableColorMatch = type.find(type => item.Type === type.name);
-        if(tableColorMatch){
-          return ({ ...item, color:  tableColorMatch.color});
+        const tableColorMatch = type.find((type) => item.Type === type.name);
+        if (tableColorMatch) {
+          return { ...item, color: tableColorMatch.color };
         }
-        
       });
       setTableData(tablecolor);
       setFullTableData(tablecolor);
     }
-
   }, [type]);
+
   return (
     <div>
       <div className="w-full d-flex text-bg-dark px-5 py-3 align-items-center justify-content-center mb-4">
         <h1 className="text-center">Inventory</h1>
-      </div> 
+      </div>
 
       <div className="p-3">
         <div className="d-flex mb-5 main-box">
-          
           {type.map((item, index) => (
             <div
               key={index}
-              style={{ background: item.color, width: item.count+"%"}}
+              style={{ background: item.color, width: item.count + "%" }}
               onClick={() => handleClick(item)}
             ></div>
           ))}
@@ -111,9 +113,11 @@ const Inventory = () => {
         ))}
       </div>
 
-      <InventoryTable tableData={tableData} typeName={type?.name} typeColor={type.color} />
+      <InventoryTable
+        tableData={tableData}
+        typeName={type?.name}
+        typeColor={type.color}
+      />
     </div>
   );
 };
-
-export default Inventory;

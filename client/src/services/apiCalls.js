@@ -4,7 +4,7 @@ import {baseURL} from "../config";
 
 export const getOptionData = ()  =>
   axios
-    .get(`${baseURL}getAllId`)
+    .get(`${baseURL}products/getAllId`)
     .then(({ data }) => {
     return data
     })
@@ -16,7 +16,7 @@ export const getOptionData = ()  =>
 
 export const getDetailsData = (id) => 
 axios
-  .get(`${baseURL}getData/${id}`)
+  .get(`${baseURL}products/getData/${id}`)
   .then(({ data }) => {
     return data;
   })
@@ -27,7 +27,7 @@ axios
 
   export const getAllData = () => 
 axios
-  .get(`${baseURL}getAllData`)
+  .get(`${baseURL}products/getAllData`)
   .then(({ data }) => {
     return data;
   })
@@ -38,7 +38,7 @@ axios
 
   export const getAllType = () => 
   axios
-    .get(`${baseURL}getAllType`)
+    .get(`${baseURL}products/getAllType`)
     .then(({ data }) => {
       return data;
     })
@@ -50,7 +50,7 @@ axios
   
     export const getAllDonutChartdata = () => 
     axios
-      .get(`${baseURL}getChartData`)
+      .get(`${baseURL}products/getChartData`)
       .then(({ data }) => {
         return data;
       })
