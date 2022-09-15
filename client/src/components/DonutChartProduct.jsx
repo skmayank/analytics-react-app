@@ -12,11 +12,7 @@ const reactDonutChartBackgroundColor = [
 const DonutChartProduct = (props) => {
   const reactDonutChartInnerRadius = 0.5;
   const reactDonutChartSelectedOffset = 0.04;
-  const reactDonutChartHandleClick = (item, toggled) => {
-    if (toggled) {
-      console.log(item);
-    }
-  };
+
 
   let reactDonutChartStrokeColor = "#FFFFFF";
   const reactDonutChartOnMouseEnter = (item) => {

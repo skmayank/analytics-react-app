@@ -6,9 +6,9 @@ import Sidebar from "./Sidebar";
 const MainPage = () => {
   return (
     <React.Fragment>
-      <section>
+      {/* <section>
           <Header />
-      </section>
+      </section> */}
 
       {/* sidebar section */}
       <section className="d-flex">

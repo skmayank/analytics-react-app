@@ -3,7 +3,8 @@
 }
 .sidebar-main-content {
  width: 280px;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
 }
 
 .home_dropdown {
@@ -86,4 +87,17 @@
 
 .donutchart {
   width: 649px!important;
+}
+.border-bottom-custom{
+  border-bottom: solid 1px #585858 !important;
+}
+.text-8xl {
+  font-size: 1.5rem;
+}
+.text-base-sm{
+  font-size: 1.2rem;
+}
+.size-font {
+  font-size: 1.5rem;
+  font-weight: 600;
 }

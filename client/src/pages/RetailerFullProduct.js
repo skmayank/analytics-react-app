@@ -18,7 +18,9 @@ const RetailerFullProduct = () => {
 
   return (
     <div>
-      <h1 className="text-center p-4">Retailer Full Product</h1>
+      <div className="w-full d-flex text-bg-dark px-5 py-3 align-items-center justify-content-center mb-4">
+        <h1 className="text-center">Retailer Full Product</h1>
+      </div> 
       <div className="text-center">
         <DonutChartProduct data={data}/>
       </div>

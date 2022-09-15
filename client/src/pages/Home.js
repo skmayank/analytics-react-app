@@ -32,13 +32,15 @@ const Home = () => {
 
   return (
     <div>
-      <h1 className="text-center p-4">Home</h1>
-      <div className="text-right mr-5">
-        <Dropdown options={options} value={value} onChange={handleChange} />
-      </div>
+      <div className="w-full d-flex text-bg-dark px-5 py-3 align-items-center justify-content-between">
+        <h1 className="text-center">Home</h1>
+        <div className="text-right mr-5">
+          <Dropdown options={options} value={value} onChange={handleChange} />
+        </div>
+      </div>    
       {value &&
       <div>
-      <div className="d-flex justify-content-around mt-5">
+      <div className="d-flex justify-content-around mt-5 align-items-center justify-content-between">
         <ThermometerTemp temperature={getDetails.temperature} />
         <Volume volume={getDetails.volume}/>
         <BatteryStatus batteryStatus={getDetails.battery}/>

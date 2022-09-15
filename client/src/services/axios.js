@@ -1,7 +1,7 @@
 import axios from "axios";
-import RCFconfig from "../config";
+import config from "../config";
 
-axios.defaults.baseURL = RCFconfig.baseURL;
+axios.defaults.baseURL = config.baseURL;
 
 
 export const setupAxiosInterceptors = () => {

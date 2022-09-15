@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
 const Map = (props) => {
-  console.log(props)
+   
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: "AIzaSyCfiHJbm3k-JFET-C1wFSjOl9DngfUz8sE" 
     });

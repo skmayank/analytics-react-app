@@ -33,7 +33,7 @@ const Circle = ({ pct, color, size }) => {
 const Volume = ({volume}) => {
   return (
     <div className="text-center">
-    <h5>Volume (%)</h5>
+    <h5 className="mb-5 size-font">Volume (%)</h5>
       <ReMount>
         <Circle pct={volume} size={200} color={"orange"} />
       </ReMount>
