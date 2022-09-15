@@ -1,5 +1,5 @@
 class RCFconfig {
-  static baseURL = "http://0.0.0.0:5000";
+  static baseURL = "http://localhost:8000/products/";
 }
 
 export default RCFconfig;

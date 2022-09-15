@@ -30,12 +30,12 @@ const Circle = ({ pct, color, size }) => {
   );
 };
 
-const Volume = () => {
+const Volume = ({volume}) => {
   return (
     <div className="text-center">
     <h5>Volume (%)</h5>
       <ReMount>
-        <Circle pct={30} size={200} color={"orange"} />
+        <Circle pct={volume} size={200} color={"orange"} />
       </ReMount>
       
     </div>

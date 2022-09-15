@@ -5,46 +5,46 @@ import movies from "../data/movies";
 const columns = [
   {
     name: "Type Color",
-    selector: "typeColor",
+    selector: (row)=><p className="table-circle" style={{backgroundColor: row.color}}></p>,
     sortable: true,
   },
   {
     name: "Type",
-    selector: "type",
+    selector: "Type",
     sortable: true,
   },
   {
     name: "Batch ID",
-    selector: "batchId",
+    selector: "BatchNumber",
     sortable: true,
   },
   {
     name: "Current Location",
-    selector: "currentLocation",
+    selector: "location",
     sortable: true,
     right: true,
   },
   {
-    name: "Produc",
-    selector: "product",
+    name: "Product",
+    selector: "Product",
     sortable: true,
     right: true,
   },
   {
     name: "Quanitity",
-    selector: "quanitity",
+    selector: "Size",
     sortable: true,
     right: true,
   },
   {
     name: "Time on Shelf",
-    selector: "timeOnShelf",
+    selector: "statusTime",
     sortable: true,
     right: true,
   },
   {
     name: "Status",
-    selector: "status",
+    selector: (row)=><p> {(row.volume <= 10)?("Empty"): row.volume <= 90 ? "Inuse" : row.volume <= 100 ? "Full": "N/A"  }</p>,
     sortable: true,
     right: true,
   },
@@ -60,10 +60,12 @@ const conditionalRowStyles = [
   },
 ];
 
-const InventoryTable = () => {
+const InventoryTable = (props) => {
+
   const [data, setData] = React.useState(movies);
 
   const handleRowClicked = (row) => {
+    
     const updatedData = data.map((item) => {
       if (row.id !== item.id) {
         return item;
@@ -77,13 +79,14 @@ const InventoryTable = () => {
 
     setData(updatedData);
   };
+  
   return (
     <div>
       <div className="App">
         <DataTable
           title=""
           columns={columns}
-          data={data}
+          data={props.tableData}
           defaultSortField="title"
           pagination
           onRowClicked={handleRowClicked}

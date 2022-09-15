@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import InventoryTable from "../components/InventoryTable";
+import { getAllData, getAllType } from "../services/apiCalls";
 const columns = [
   {
     type: "Type",
@@ -35,35 +36,73 @@ const columns = [
     type: "Type",
     color: "#fb8e34",
     color_percent: "10%",
-  }
-  
+  },
 ];
+const cl = ["#f68ae9", "#f2b800", "#5fefa4", "#fe6969", "#298af2", "#298af2", "#af1ad8", "#fb8e34"];
 
 const Inventory = () => {
+  const [type, setType] = useState([]);
+  const [tableData, setTableData] = useState([]);
+
+  useEffect(() => {
+    getAllData().then((res) => {
+      setTableData(res.message);
+    });
+
+    getAllType().then((res) => {
+      
+      const color = res.message?.map((item, index) => {
+        return { ...item, color: cl[index] };
+      });
+
+      setType(color);
+    });
+  }, []);
+
   const handleClick = (index) => {
-    console.log("====", index)
-  }
+    console.log("====", index);
+  };
+
+  useEffect(()=> {
+    if(type) {
+      let tablecolor = tableData.map((item) => {
+        const tableColorMatch = type.find(type => item.Type === type.name);
+        if(tableColorMatch){
+          return ({ ...item, color:  tableColorMatch.color});
+        }
+        
+      });
+      setTableData(tablecolor);
+    }
+
+  }, [type]);
   return (
     <div>
       <h1 className="text-center p-4">Inventory</h1>
 
       <div className="p-3">
         <div className="d-flex mb-5 main-box">
-          {columns.map((item, index) => (
-            <div key={index} style={{ background: item.color, width: item.color_percent }} onClick={() => handleClick(index)}></div>
+          
+          {type.map((item, index) => (
+            <div
+              key={index}
+              style={{ background: item.color, width: item.count+"%"}}
+              onClick={() => handleClick(index)}
+            ></div>
           ))}
         </div>
       </div>
 
-      <div className="d-flex justify-content-around">
-        {columns.map((item, index) => (
+      <div className="d-flex justify-content-around mb-5">
+        {type.map((item, index) => (
           <div key={index} className="d-flex">
             <div className="box" style={{ background: item.color }}></div>
-            <span> {item.type} </span>
+            <span className="pl-2"> {item.name} </span>
           </div>
         ))}
       </div>
-      <InventoryTable />
+
+      <InventoryTable tableData={tableData} typeName={type?.name} typeColor={type.color} />
     </div>
   );
 };

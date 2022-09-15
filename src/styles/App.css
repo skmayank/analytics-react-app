@@ -66,14 +66,24 @@
 }
 /* volume component css end here */
 
+.main-box {
+  height: 40px;
+}
 
 .box{
   height: 25px;
     width: 25px;
     border: 1px solid black;
-    /* background: red; */
+    margin-right: 5px;
 }
 
-.main-box {
-  height: 40px;
+.table-circle {
+  height: 25px;
+  width: 25px;
+  border-radius: 50px;
+  /* background-color: aquamarine; */
+}
+
+.donutchart {
+  width: 649px!important;
 }
