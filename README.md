@@ -29,6 +29,7 @@
 * KegTracker ID selection / dropdown box at the Top / Right-Top corner 
 * On selecting KegTracker ID, Temperature-Volume-Battery values should change with some animations
 * Getting the Lat-Long from the database for the device, Google Map pin location need to be shown "
+* 
 
 "2) Inventory
 * Fixed left bar column with link to 5 pages
@@ -44,7 +45,9 @@
 - Read data from excel sheet using 'xlsx' package
 - And used routing and controller concepts to create APIs.
 - DataTable library used for showing table
-- react-donut-chart used for showing donut chart which is a little different from the Screenshot because of the box being in the right side but other functionalities and feature are all present.
+- For donut chart i have researched multiple libraries and react-donut-chart fits the best according to requirement but it  is not giving control to show the detail box on the left side so it is not 100 % as requirement but have every functionality.
+- For google map on home page, I researched possible solutions and found the closest matching one to the requirement.
+ which is not 100 %  as requirement.
 
 
 
