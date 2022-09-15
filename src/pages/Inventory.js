@@ -43,10 +43,12 @@ const cl = ["#f68ae9", "#f2b800", "#5fefa4", "#fe6969", "#298af2", "#298af2", "#
 const Inventory = () => {
   const [type, setType] = useState([]);
   const [tableData, setTableData] = useState([]);
+  const [fullTableData, setFullTableData] = useState([]);
 
   useEffect(() => {
     getAllData().then((res) => {
       setTableData(res.message);
+      setFullTableData(res.message)
     });
 
     getAllType().then((res) => {
@@ -59,11 +61,15 @@ const Inventory = () => {
     });
   }, []);
 
-  const handleClick = (index) => {
-    console.log("====", index);
+  const handleClick = (item) => {
+    const filterResult = fullTableData.filter((row)=>(
+      row.Type === item.name
+    ))
+    setTableData(filterResult)
   };
 
   useEffect(()=> {
+
     if(type) {
       let tablecolor = tableData.map((item) => {
         const tableColorMatch = type.find(type => item.Type === type.name);
@@ -73,6 +79,7 @@ const Inventory = () => {
         
       });
       setTableData(tablecolor);
+      setFullTableData(tablecolor);
     }
 
   }, [type]);
@@ -87,7 +94,7 @@ const Inventory = () => {
             <div
               key={index}
               style={{ background: item.color, width: item.count+"%"}}
-              onClick={() => handleClick(index)}
+              onClick={() => handleClick(item)}
             ></div>
           ))}
         </div>

@@ -11,9 +11,9 @@ const Home = () => {
   const [value, setValue] = React.useState("");
   
   useEffect(()=>{
-    getOptionData().then((res ) => {
+    getOptionData().then((res) => {
       setOptionData(res.message);
-      setValue(res[0])
+      setValue(res.message[0])
     });
 
   }, []);
