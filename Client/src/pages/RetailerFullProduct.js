@@ -5,6 +5,7 @@ import { getAllDonutChartdata } from "../services/apiCalls";
 const RetailerFullProduct = () => {
   const [data, setData] =useState([]);
   const allColor = ["#f68ae9", "#f2b800", "#5fefa4", "#fe6969", "#298af2", "#298af2", "#af1ad8", "#fb8e34"];
+  
   useEffect(()=>{
     getAllDonutChartdata().then((res) => {
       

@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
 const Map = (props) => {
+  console.log(props)
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: "AIzaSyCfiHJbm3k-JFET-C1wFSjOl9DngfUz8sE" 
     });
@@ -9,7 +10,7 @@ const Map = (props) => {
     return <MyMap props={props}/>
 }
 function MyMap(props){
-    const center = useMemo(()=> ({ lat: props.let, lng: props.lng}), []);
+    const center = useMemo(()=> ({ lat: 51.4835741, lng: -0.1252037}), []);
   return (
     <div>
       <GoogleMap 
