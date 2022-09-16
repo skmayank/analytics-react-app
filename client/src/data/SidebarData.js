@@ -10,13 +10,5 @@ export const SidebarData = [
       {
         title: "Retailer Full Product",
         path: "/retailer-full-product",
-      },
-      {
-        title: "Keg Availability",
-        path: "/keg-availability",
-      },
-      {
-        title: "Product Availability",
-        path: "/product-availability",
-      },
+      }
 ]
