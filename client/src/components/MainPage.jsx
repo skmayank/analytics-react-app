@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "./Header";
 import AppRoute from "./AppRoute";
 import Sidebar from "./Sidebar";
 

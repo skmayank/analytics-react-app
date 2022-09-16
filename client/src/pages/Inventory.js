@@ -1,43 +1,7 @@
 import React, { useEffect, useState } from "react";
 import InventoryTable from "../components/InventoryTable";
 import { getAllData, getAllType } from "../services/apiCalls";
-const columns = [
-  {
-    type: "Type",
-    color: "#f68ae9",
-    color_percent: "50%",
-  },
-  {
-    type: "Inventory",
-    color: "#f2b800",
-    color_percent: "10%",
-  },
-  {
-    type: "Whistle",
-    color: "#5fefa4",
-    color_percent: "5%",
-  },
-  {
-    type: "Punks",
-    color: "#fe6969",
-    color_percent: "5%",
-  },
-  {
-    type: "UK",
-    color: "#298af2",
-    color_percent: "10%",
-  },
-  {
-    type: "Ltd",
-    color: "#af1ad8",
-    color_percent: "10%",
-  },
-  {
-    type: "Type",
-    color: "#fb8e34",
-    color_percent: "10%",
-  },
-];
+
 const colorTable = [
   "#f68ae9",
   "#f2b800",
@@ -66,6 +30,7 @@ export const Inventory = () => {
       });
       setType(color);
     });
+    // eslint-disable-next-line
   }, []);
 
   const handleClick = (item) => {
@@ -79,11 +44,14 @@ export const Inventory = () => {
         const tableColorMatch = type.find((type) => item.Type === type.name);
         if (tableColorMatch) {
           return { ...item, color: tableColorMatch.color };
+        }else {
+          return null;
         }
       });
       setTableData(tablecolor);
       setFullTableData(tablecolor);
     }
+    // eslint-disable-next-line
   }, [type]);
 
   return (

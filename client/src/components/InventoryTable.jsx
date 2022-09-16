@@ -1,6 +1,5 @@
 import React from "react";
 import DataTable from "react-data-table-component";
-import movies from "../data/movies";
 
 const columns = [
   {
@@ -13,19 +12,16 @@ const columns = [
   {
     name: "Type",
     selector: (row) => row.Type,
-    // selector: "Type",
     sortable: true,
   },
   {
     name: "Batch ID",
      selector: (row) => row.BatchNumber,
-    // selector: "BatchNumber",
     sortable: true,
   },
   {
     name: "Current Location",
      selector: (row) => row.location,
-    // selector: "location",
     sortable: true,
     right: true,
   },
@@ -39,14 +35,12 @@ const columns = [
   {
     name: "Quanitity",
      selector: (row) => row.Size,
-    // selector: "Size",
     sortable: true,
     right: true,
   },
   {
     name: "Time on Shelf",
      selector: (row) => row.statusTime,
-    // selector: "statusTime",
     sortable: true,
     right: true,
   },
@@ -80,7 +74,7 @@ const conditionalRowStyles = [
 ];
 
 const InventoryTable = (props) => {
-  const [data, setData] = React.useState(movies);
+  const [data, setData] = React.useState(props?.tableData);
 
   const handleRowClicked = (row) => {
     const updatedData = data.map((item) => {

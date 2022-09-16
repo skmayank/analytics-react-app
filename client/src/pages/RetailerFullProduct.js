@@ -14,6 +14,7 @@ const RetailerFullProduct = () => {
       });
       setData(color);
     });
+    // eslint-disable-next-line
   }, []);
 
   return (
