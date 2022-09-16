@@ -48,7 +48,7 @@ const Home = () => {
 
       <div className="mt-4">
         <h3 className="text-center mb-5 mt-5">Location of the device</h3>
-        <Map let={getDetails.latitude} lng={getDetails.longitude}/>
+        <Map lat={parseFloat(getDetails?.latitude)} lng={parseFloat(getDetails?.longitude)}/>
       </div>
     </div>}
 

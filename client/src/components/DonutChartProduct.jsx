@@ -30,6 +30,7 @@ const DonutChartProduct = (props) => {
         colors={reactDonutChartBackgroundColor}
         innerRadius={reactDonutChartInnerRadius}
         selectedOffset={reactDonutChartSelectedOffset}
+        
       />
     </div>
   );

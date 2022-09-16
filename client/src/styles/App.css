@@ -69,6 +69,7 @@
 
 .main-box {
   height: 40px;
+  cursor: pointer;
 }
 
 .box{
@@ -102,3 +103,13 @@
   font-weight: 600;
 }
 
+.reset-btn{
+  width: 20%;
+  text-align: center;
+  float: right;
+  margin-right: 20px;
+}
+
+.mouse {
+  cursor: pointer;
+}

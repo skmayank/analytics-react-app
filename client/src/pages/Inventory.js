@@ -54,6 +54,10 @@ export const Inventory = () => {
     // eslint-disable-next-line
   }, [type]);
 
+  const handleReset = () => {
+    setTableData(fullTableData);
+  }
+
   return (
     <div>
       <div className="w-full d-flex text-bg-dark px-5 py-3 align-items-center justify-content-center mb-4">
@@ -74,7 +78,7 @@ export const Inventory = () => {
 
       <div className="d-flex justify-content-around mb-5">
         {type.map((item, index) => (
-          <div key={index} className="d-flex">
+          <div key={index} className="d-flex mouse"  onClick={() => handleClick(item)}>
             <div className="box" style={{ background: item.color }}></div>
             <span className="pl-2"> {item.name} </span>
           </div>
@@ -86,6 +90,7 @@ export const Inventory = () => {
         typeName={type?.name}
         typeColor={type.color}
       />
+      <button className="btn btn-primary reset-btn mt-3 mb-5 mr-3" onClick={handleReset}>Reset</button>
     </div>
   );
 };
