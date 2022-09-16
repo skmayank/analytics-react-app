@@ -1,8 +1,10 @@
 import React from "react";
 import { SidebarData } from "../data/SidebarData";
-import { NavLink } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
+  const location = useLocation();
+  
   return (
     <React.Fragment>
       <section>
@@ -16,13 +18,13 @@ const Sidebar = () => {
             {SidebarData.map((item, index) => {
               return (
                 <li className="nav-item mb-2" key={index}>
-                  <NavLink
+                  <Link
                     to={item.path}
-                    className="nav-link text-white text-base-sm"
+                    className={`nav-link text-white text-base-sm ${item.path === location?.pathname && "active"}`}
                   >
                     <span>{item.icon}</span>
                     <span>{item.title}</span>
-                  </NavLink>
+                  </Link>
                 </li>
               );
             })}
